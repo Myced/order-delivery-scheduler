@@ -1,5 +1,5 @@
 <?php
-namespace App\Base;
+namespace TNC\Base;
 
 
 class AdminMenu

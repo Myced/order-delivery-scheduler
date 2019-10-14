@@ -1,5 +1,5 @@
 <?php
-namespace App\Core;
+namespace TNC\Core;
 
 
 class Scheduler
@@ -12,8 +12,9 @@ class Scheduler
     public static function get_services()
     {
         return [
-            \App\Base\Enqueue::class,
-            \App\Base\AdminMenu::class
+            \TNC\Base\Enqueue::class,
+            \TNC\Base\AdminMenu::class,
+            \TNC\Base\DeliveryScheduleMetaBox::class
         ];
     }
 

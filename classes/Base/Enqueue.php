@@ -1,5 +1,5 @@
 <?php
-namespace App\Base;
+namespace TNC\Base;
 
 
 class Enqueue
@@ -15,6 +15,7 @@ class Enqueue
         //load this script on the order edit page.
         global $post;
 
+        //load the datepicker only on the order details page.
         if(!is_null($post))
         {
             if($post->post_type == "shop_order")
@@ -22,7 +23,11 @@ class Enqueue
                 //only load it on the edit page
                 if(isset($_GET['action']) && $_GET['action'] == 'edit')
                 {
-                    wp_enqueue_script("GT_EMEI" . '-myscript', GT_EMEI_ASSETS_URL . 'gt-emei.js' );
+                    wp_enqueue_style("TNC_PLUGIN" . 'DatepickerCss', TNC_SCHEDULE_ASSETS_URL . 'datepicker/bootstrap-datepicker.css' );
+
+                    wp_enqueue_script("TNC_PLUGIN" . 'DatepickerJs', TNC_SCHEDULE_ASSETS_URL . 'datepicker/bootstrap-datepicker.js' );
+
+                    wp_enqueue_script("TNC_PLUGIN" . 'yscript', TNC_SCHEDULE_ASSETS_URL . 'myscript.js' );
                 }
             }
         }

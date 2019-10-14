@@ -9,10 +9,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "App\\": "./classes"
+            "TNC\\": "./classes"
         }
     },
     "require": {
-        "nesbot/carbon": "^1.39"
+        "nesbot/carbon": "^1.9.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.9"
     }
 }

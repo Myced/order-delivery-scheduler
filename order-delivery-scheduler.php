@@ -1,18 +1,18 @@
 <?php
 
 /**
-* @package GT Plugin
+* @package TNC Plugin
 **/
 
 /**
 Plugin Name: Order Delivery Scheduler
 Plugin URI: https://glotelho.cm
-Description: A plugin to schedule order deliveries to easily find orders that are ready to be shipped
+Description: A nifty Wordpress Woocommerce plugin that helps set scheduled delivery dates for orders so that you can easily follow up on order and get reminded
 Version: 1.0.0
-Author: TN CEDRIC
+Author: TN TNCRIC
 Author URI: https://glotelho.cm
 Licence: GPLv2 or later
-Text Domain:  TN_Order_Schedule.
+Text Domain:  TNC_Order_Scheduler.
 Domain Path: /languages
 **/
 
@@ -26,16 +26,16 @@ if( ! defined('ABSPATH'))
 require_once(__DIR__ . '/vendor/autoload.php');
 
 //do my definitions here
-define('GT_SCHEDULE_PLUGIN_URL', plugins_url() . '/gt_emei/');
-define('GT_SCHEDULE_ASSETS_URL', GT_SCHEDULE_PLUGIN_URL . 'assets/');
-define('GT_SCHEDULE_CLASSES_URL',  'classes/');
-define('GT_SCHEDULE_PLUGIN_BASENAME', plugin_basename(__FILE__));
-define("GT_SCHEDULE_BASE_DIRECTORY", __DIR__);
+define('TNC_SCHEDULE_PLUGIN_URL', plugins_url() . '/order-delivery-scheduler/');
+define('TNC_SCHEDULE_ASSETS_URL', TNC_SCHEDULE_PLUGIN_URL . 'assets/');
+define('TNC_SCHEDULE_CLASSES_URL',  'classes/');
+define('TNC_SCHEDULE_PLUGIN_BASENAME', plugin_basename(__FILE__));
+define("TNC_SCHEDULE_BASE_DIRECTORY", __DIR__);
 
 //include the core class file
 
-use App\Core\Scheduler;
-use App\Base\Activation;
+use TNC\Core\Scheduler;
+use TNC\Base\Activation;
 
 // Register the activation and the deactivation hooks for the plugin.
 register_activation_hook(__FILE__, [Activation::class, 'activate']);
@@ -52,14 +52,14 @@ if(!class_exists('WooCommerce'))
 
 }
 else {
-    function gt_admin_notice__error()
+    function TNC_admin_notice__error()
     {
     	$class = 'notice notice-error';
-    	$message = __( 'WooCommerce is Required to use Glotelho EMEI plugin', 'gt_emei' );
+    	$message = __( 'WooCommerce is Required to use this plugin', 'TNC_emei' );
 
     	printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
     }
-    add_action( 'admin_notices', 'gt_admin_notice__error' );
+    add_action( 'admin_notices', 'TNC_admin_notice__error' );
 
 }
 
