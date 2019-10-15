@@ -1,7 +1,8 @@
 jQuery(document).ready(function($){
     //document ready
     //initialise the datepicker plugin
-    $('.datepicker').cdatepicker({
+
+    $('.cdatepicker').cdatepicker({
         format: 'yyyy-mm-dd',
         autoclose: true
     })

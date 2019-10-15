@@ -23,6 +23,7 @@ class Enqueue
                 //only load it on the edit page
                 if(isset($_GET['action']) && $_GET['action'] == 'edit')
                 {
+                    wp_enqueue_style("TNC_PLUGIN" . 'BootstrapCss', TNC_SCHEDULE_ASSETS_URL . 'bootstrap.css' );
                     wp_enqueue_style("TNC_PLUGIN" . 'DatepickerCss', TNC_SCHEDULE_ASSETS_URL . 'datepicker/bootstrap-datepicker.css' );
 
                     wp_enqueue_script("TNC_PLUGIN" . 'DatepickerJs', TNC_SCHEDULE_ASSETS_URL . 'datepicker/bootstrap-datepicker.js' );
