@@ -1,6 +1,8 @@
 <?php
 namespace TNC\Base;
 
+use TNC\MenuControllers\PagesController;
+use TNC\MenuControllers\DashboardController;
 
 class AdminMenu
 {
@@ -19,7 +21,7 @@ class AdminMenu
     private function addMenu()
     {
         $page_title = "Delivery Scheduler";
-        $menu_title = "Delivery";
+        $menu_title = "Deliveries";
         $capability = "manage_categories";
         $menu_slug = "gt-delivery";
         $function = [$this, 'mainMenuCallback'];
@@ -61,12 +63,45 @@ class AdminMenu
         $pages = [
             [
                 'parent_slug' => $parent_slug,
-                'title' => "Delivery Dashboard",
-                'menu_title' => 'Dashboard',
+                'title' => "Deliveries Today",
+                'menu_title' => 'Deliveries Today',
                 'capability' => $capability,
-                'menu_slug' => 'gt-delivery',
-                'function' => [$this, 'mainMenuCallback']
+                'menu_slug' => 'gt-delivery_today',
+                'function' => [PagesController::class, 'deliveries_today']
+            ],
+            [
+                'parent_slug' => $parent_slug,
+                'title' => "Deliveries Tomorrow",
+                'menu_title' => 'Deliveries Tomorrow',
+                'capability' => $capability,
+                'menu_slug' => 'gt-delivery_tomorrow',
+                'function' => [PagesController::class, 'deliveries_tomorrow']
+            ],
+            [
+                'parent_slug' => $parent_slug,
+                'title' => "Other Deliveries",
+                'menu_title' => 'Other Deliveries',
+                'capability' => $capability,
+                'menu_slug' => 'gt-delivery_others',
+                'function' => [PagesController::class, 'other_deliveries']
+            ],
+            [
+                'parent_slug' => $parent_slug,
+                'title' => "Failed Yesterday",
+                'menu_title' => 'Failed Yesterday',
+                'capability' => $capability,
+                'menu_slug' => 'gt-delivery_yesterday',
+                'function' => [PagesController::class, 'failed_yesterday']
+            ],
+            [
+                'parent_slug' => $parent_slug,
+                'title' => "All Failed Deliveries",
+                'menu_title' => 'Failed Deliveries',
+                'capability' => $capability,
+                'menu_slug' => 'gt-delivery_failed',
+                'function' => [PagesController::class, 'failed_deliveries']
             ]
+
         ];
 
         return $pages;

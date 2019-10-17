@@ -60,7 +60,7 @@ class DeliveryScheduleMetaBox
 			<label class="meta-label" for="tnc_delivery_date_field">Delivery Date:</label>
 
             <input type="text" name="tnc_delivery_value" class="cdatepicker"
-                id="id="tnc_delivery_date_field""
+                id="id="tnc_delivery_date_field"" autocomplete="off"
                 value="<?php if(!empty($delivery_date)) { echo $delivery_date; } ?>"
                 placeholder="Enter Date YYYY-mm-dd">
 

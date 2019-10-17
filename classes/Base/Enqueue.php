@@ -33,6 +33,34 @@ class Enqueue
             }
         }
 
+        //set of pages where the styles will be loaded.
+        $pages  = [
+            "gt-delivery",
+            "gt-delivery_today",
+            "gt-delivery_tomorrow",
+            "gt-delivery_others",
+            "gt-delivery_yesterday",
+            "gt-delivery_failed"
+        ];
+
+        //enqueue styles now for the admin menu pages
+        if(isset($_GET['page']))
+        {
+            $page = $_GET['page'];
+
+            if(in_array($page, $pages))
+            {
+                wp_enqueue_style(TNC_SCHEDULE_PLUGIN_BASENAME . 'Bootstrap', TNC_SCHEDULE_ASSETS_URL . 'bootstrap.css' );
+                wp_enqueue_style(TNC_SCHEDULE_PLUGIN_BASENAME . 'DataTableCss', TNC_SCHEDULE_ASSETS_URL . 'datatables/dataTables.bootstrap.css' );
+                wp_enqueue_style(TNC_SCHEDULE_PLUGIN_BASENAME . 'AdminLTE', TNC_SCHEDULE_ASSETS_URL . 'AdminLTE.css' );
+
+                //load javascripts
+                wp_enqueue_script(TNC_SCHEDULE_PLUGIN_BASENAME . 'DataTableJs', TNC_SCHEDULE_ASSETS_URL . 'datatables/jquery.dataTables.js' );
+                wp_enqueue_script(TNC_SCHEDULE_PLUGIN_BASENAME . 'DatepickerBsJs', TNC_SCHEDULE_ASSETS_URL . 'datatables/dataTables.bootstrap.js' );
+                wp_enqueue_script("TNC_PLUGIN" . 'yscript', TNC_SCHEDULE_ASSETS_URL . 'myscript.js' );
+            }
+        }
+
 
     }
 }

@@ -2,8 +2,16 @@ jQuery(document).ready(function($){
     //document ready
     //initialise the datepicker plugin
 
-    $('.cdatepicker').cdatepicker({
-        format: 'yyyy-mm-dd',
-        autoclose: true
-    })
+    if($('.cdatepicker').val() !== undefined )
+    {
+        $('.cdatepicker').cdatepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true
+        })
+    }
+
+    if($('.datatable').val() !== undefined)
+    {
+        $(".datatable").DataTable();
+    }
 })
