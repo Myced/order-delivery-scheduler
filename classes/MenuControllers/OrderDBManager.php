@@ -17,6 +17,8 @@ class OrderDBManager
 
     private $post_date_field;
 
+    private $order_statuses;
+
 
 
     function __construct()

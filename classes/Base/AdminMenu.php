@@ -24,7 +24,7 @@ class AdminMenu
         $menu_title = "Deliveries";
         $capability = "manage_categories";
         $menu_slug = "gt-delivery";
-        $function = [$this, 'mainMenuCallback'];
+        $function = [DashboardController::class, 'show_report'];
         $icon64 = $this->getBase64Icon();
         // $icon = "data:image/svg+xml;base64," . $icon64;
         $icon = "dashicons-buddicons-replies";
